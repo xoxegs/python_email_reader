@@ -16,7 +16,7 @@ scopes = ["https://graph.microsoft.com/.default"]
 graph_endpoint = f'https://graph.microsoft.com/v1.0/users/{user_email}/messages'
 
 # Autenticación con MSAL
-def obtener_token():
+def get_token():
     app = msal.ConfidentialClientApplication(
         client_id,
         authority=authority,
@@ -36,7 +36,7 @@ def obtener_token():
 
 # Leer correos electrónicos
 def read_email():
-    token = obtener_token()
+    token = get_token()
     if not token:
         return
     
